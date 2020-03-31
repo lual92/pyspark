@@ -11,7 +11,3 @@ def pi(N):
 
 
 print(pi(10000))
-
-
-def culocaca():
-    pass
