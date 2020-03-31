@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def lector(archivo):
     with open(archivo, 'r') as libro:
         return libro.read().lower()
@@ -18,11 +21,13 @@ def contador_palabras(lista_contenido):
     lista_contenido = re.split(tokens, lista_contenido)
     return len(lista_contenido), acentos(lista_contenido)
 
-def minus(wrd):
-    return wrd.lower()
+
+def useless_words(lista_palabras):
+    stpwrds = lector('stopwords.txt')
+    stpwrds = contador_palabras(stpwrds)[1]
+    return list(filter((lambda x: True if x not in stpwrds else False), lista_palabras))
 
 
 def frecuencias(lista_contenido):
-    import pandas as pd
     relato = pd.DataFrame(lista_contenido, columns=['palabras'])
     return relato['palabras'].value_counts()
