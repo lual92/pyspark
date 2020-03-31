@@ -3,11 +3,18 @@ def lector(archivo):
         return libro.read()
 
 
+def acentos(palabras_relato):
+    import unidecode
+    return unidecode.unidecode(palabras_relato)
+
+
 def contador_palabras(lista_contenido):
     import re
     tokens = '[\W0-9]+'
     lista_contenido = re.split(tokens, lista_contenido)
-    return len(lista_contenido), lista_contenido
+    return len(lista_contenido), acentos(str(lista_contenido))
 
 
-print(contador_palabras(lector('platano.txt')))
+texto_ejemplo = lector('platano.txt')
+
+num_palabras, texto = contador_palabras(texto_ejemplo)
