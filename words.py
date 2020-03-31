@@ -13,8 +13,3 @@ def contador_palabras(lista_contenido):
     tokens = '[\W0-9]+'
     lista_contenido = re.split(tokens, lista_contenido)
     return len(lista_contenido), acentos(str(lista_contenido))
-
-
-texto_ejemplo = lector('platano.txt')
-
-num_palabras, texto = contador_palabras(texto_ejemplo)
