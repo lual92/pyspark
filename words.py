@@ -25,7 +25,7 @@ def contador_palabras(lista_contenido):
 def useless_words(lista_palabras):
     stpwrds = lector('stopwords.txt')
     stpwrds = contador_palabras(stpwrds)[1]
-    return list(filter((lambda x: True if x not in stpwrds else False), lista_palabras))
+    return list(filter((lambda x: x not in stpwrds), lista_palabras))
 
 
 def frecuencias(lista_contenido):
